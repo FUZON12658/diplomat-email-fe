@@ -503,29 +503,57 @@ export const DynamicForm: React.FC<DynamicFormProps> = ({
     return matchingValues;
   }, []);
 
-  const findMatchingOptionsForSingleSelect = React.useCallback(
-    //@ts-expect-error nothing just bullshit typescript showing bullshit warnings
-    (options, fieldValues) => {
-      if (!Array.isArray(options)) return [];
-      console.log(JSON.stringify(fieldValues));
-      // Extract IDs from fieldValues objects
-      let fieldValueIds = fieldValues.id||fieldValues;
-      if (!fieldValueIds) {
-        fieldValueIds = fieldValues.value;
-      }
-      // Find matching options based on the IDs
-      const matchingValues = options.filter(
-        (option) => fieldValueIds === option.value
-      );
+  // const findMatchingOptionsForSingleSelect = React.useCallback(`
+  //   //@ts-expect-error nothing just bullshit typescript showing bullshit warnings
+  //   (options, fieldValues) => {
+  //     if (!Array.isArray(options)) return [];
+  //     console.log(JSON.stringify(fieldValues));
+  //     // Extract IDs from fieldValues objects
+  //     let fieldValueIds = fieldValues.id||fieldValues;
+  //     if (!fieldValueIds) {
+  //       fieldValueIds = fieldValues.value;
+  //     }
+  //     // Find matching options based on the IDs
+  //     const matchingValues = options.filter(
+  //       (option) => fieldValueIds === option.value
+  //     );
 
-      console.log('Field Value IDs:', fieldValueIds);
-      console.log('Matching Values:', matchingValues);
+  //     console.log('Field Value IDs:', fieldValueIds);
+  //     console.log('Matching Values:', matchingValues);
 
-      return matchingValues;
-    },
-    []
-  );
+  //     return matchingValues;
+  //   },
+  //   []
+  // );
   // Check if all fields have data
+
+// Fixed findMatchingOptionsForSingleSelect function
+const findMatchingOptionsForSingleSelect = React.useCallback(
+  (options: any[], fieldValue: any) => {
+    if (!Array.isArray(options) || !fieldValue) return null;
+    
+    console.log('Field Value:', JSON.stringify(fieldValue));
+    
+    // Handle different value formats
+    let fieldValueId = fieldValue;
+    if (typeof fieldValue === 'object' && fieldValue !== null) {
+      fieldValueId = fieldValue.id || fieldValue.value;
+    }
+    
+    // Find matching option
+    const matchingValue = options.find(
+      (option) => option.value === fieldValueId
+    );
+    
+    console.log('Field Value ID:', fieldValueId);
+    console.log('Matching Value:', matchingValue);
+    
+    return matchingValue || null;
+  },
+  []
+);
+
+
   const isDataComplete = React.useCallback(
     (data: any) => {
       if (!multiSelectFields.length) return false;
@@ -1542,7 +1570,7 @@ export const DynamicForm: React.FC<DynamicFormProps> = ({
                 ? 'Please Wait...'
                 : 'Submit'}
             </Button>
-                        <Button
+                       {slug === "articles" ? <Button
               type="button"
               onClick={()=>handleSendEmail(formDataSupplied?.id)}
               className="text-white p-2 rounded"
@@ -1557,7 +1585,7 @@ export const DynamicForm: React.FC<DynamicFormProps> = ({
               isSubmitting
                 ? 'Please Wait...'
                 : 'Send Email'}
-            </Button>
+            </Button>:""}
             </div>
           </form>
         </Form>
