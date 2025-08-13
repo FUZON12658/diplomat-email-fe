@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Ambassadors Club',
+  title: 'Diplomat Nepal',
   description:
-    "The Ambassadors' Club is pivotal in fostering international understanding and collaboration. We are a non-partisan, not-for-profit organisation, working towards strengthening global diplomacy, promoting global peace, and driving sustainable development through collaboration, dialogue, and strategic partnerships.  ",
+    "Diplomat Nepal Email Client.  ",
 };
 
 export default async function RootLayout({

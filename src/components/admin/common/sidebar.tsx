@@ -8,8 +8,10 @@ import {
   FaEnvelope,
   FaGear,
   FaHouse,
+  FaNewspaper,
   FaPhotoFilm,
   FaUser,
+  FaUserGroup,
 } from "react-icons/fa6";
 
 const Sidebar = () => {
@@ -146,7 +148,7 @@ const Sidebar = () => {
         },
         {
           label: "Newsletters & Email",
-          icon: <FaUser className="text-lg" />,
+          icon: <FaNewspaper className="text-lg" />,
           type: "submenu",
           id: "press-releases",
           submenu: [
@@ -156,7 +158,7 @@ const Sidebar = () => {
         },
         {
           label: "Subscribers",
-          icon: <FaUser className="text-lg" />,
+          icon: <FaUserGroup className="text-lg" />,
           type: "submenu",
           id: "events",
           submenu: [
@@ -315,9 +317,9 @@ const Sidebar = () => {
             }`}
           >
             <img
-              src="/ambclub.webp"
+              src="/logo.png"
               alt="user"
-              className={`h-11 w-11 shadow-sm ${
+              className={`h-11 w-11 shadow-sm object-contain ${
                 isCollapsed ? "rounded-sm" : "rounded-full"
               }`}
             />
@@ -329,7 +331,7 @@ const Sidebar = () => {
               }`}
             >
               <h6 className="text-base text-foreground font-medium mb-0">
-                Ambassadors Club Nepal
+                Diplomat Nepal
               </h6>
               <small className="text-surface-700 text-sm">Administrator</small>
             </div>

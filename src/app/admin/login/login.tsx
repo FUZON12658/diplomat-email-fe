@@ -13,10 +13,10 @@ export default function AuthComponent() {
           <a href="#" className="flex items-center gap-2 font-medium">
             <div className="flex h-6 w-6 items-center justify-center rounded-md bg-white border-wyfPrimary border text-primary-foreground">
               <div className="w-24 h-24 flex items-center justify-center relative">
-              <ImageWithFallback src="/emblem.png" alt="wyf" imageClassname="object-contain mt-[0.125rem]" />
+              <ImageWithFallback src="/logo.png" alt="wyf" imageClassname="object-contain mt-[0.125rem]" />
               </div>
             </div>
-            Ambassadors Club Nepal
+            Diplomat Nepal Email Client
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
@@ -27,9 +27,9 @@ export default function AuthComponent() {
       </div>
       <div className="relative hidden bg-transparent lg:block">
         <img
-          src="/ambclub.webp"
+          src="/logo.png"
           alt="Image"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-contain"
         />
       </div>
     </div>

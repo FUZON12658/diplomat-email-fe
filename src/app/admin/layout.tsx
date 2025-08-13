@@ -10,8 +10,8 @@ import "./global.css"
 // import AuthComponent from '../oldadmin/(auth)/login/login';
 
 export const metadata: Metadata = {
-  title: 'Ambassadors Club Nepal',
-  description: 'Ambassadors Club Nepal ',
+  title: 'Diplomat Nepal',
+  description: 'Diplomat Nepal ',
 };
 
 export default async function RootLayout({
